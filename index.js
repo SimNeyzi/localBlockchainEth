@@ -22,3 +22,6 @@ const privateKeySender = '112bb664fc39a4a6b8d182ed0a2c268f90e7aea36ecb8dcd5a5039
 const privateKeyHex = new Buffer(privateKeySender, 'hex');
 const transaction = new EthereumTransaction(rawTransaction);
 transaction.sign(privateKeyHex);
+
+const serializedTransaction = transaction.serialize();
+web3.eth.sendSignedTransaction(serializedTransaction);
